@@ -142,6 +142,16 @@ Rules:
   use chart_type "stacked_bar" and special_mode "wytopp_stacked".
 - In WYTOPP stacked mode, set x to Grade or School Year, based on the user's wording.
   Set y to null and group to null. The plotting engine will stack the two known percentage columns.
+- For broad or open-ended WYTOPP requests such as:
+  "What chart should I look at first?"
+  "What should I notice first?"
+  or "Show me the most important trend":
+  - Prefer an all-students longitudinal view.
+  - Use School Year as x.
+  - Default to Subject = "ELA" when ELA is an exact available Subject value.
+  - If the dataset uses "English" rather than "ELA", use the exact available value "English".
+  - Prefer chart_type "stacked_bar" with special_mode "wytopp_stacked" for an initial status view.
+  - Do not average ELA, Math, and Science together unless the user explicitly requests a combined-subject summary.
 - Return JSON only, with no markdown or explanation outside the JSON.
 """
 
