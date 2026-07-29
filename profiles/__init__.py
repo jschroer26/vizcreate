@@ -1,6 +1,7 @@
 """Dataset profiles available to VizCreate."""
 
 from .base_profile import DatasetProfile, DatasetProfileResult
+from .act_longitudinal import ActLongitudinalProfile
 from .cbm_progress_monitoring import CbmProgressMonitoringProfile
 from .general_tabular import GeneralTabularProfile
 from .likert_survey import LikertSurveyProfile
@@ -11,6 +12,7 @@ from .wytopp_longitudinal import WytoppLongitudinalProfile
 __all__ = [
     "DatasetProfile",
     "DatasetProfileResult",
+    "ActLongitudinalProfile",
     "CbmProgressMonitoringProfile",
     "GeneralTabularProfile",
     "LikertSurveyProfile",
