@@ -5,6 +5,7 @@ from __future__ import annotations
 import pandas as pd
 
 from profiles import (
+    ActLongitudinalProfile,
     CbmProgressMonitoringProfile,
     DatasetProfileResult,
     GeneralTabularProfile,
@@ -16,6 +17,7 @@ from profiles import (
 
 
 PROFILE_CLASSES = [
+    ActLongitudinalProfile,
     WytoppLongitudinalProfile,
     WytoppCurrentYearProfile,
     CbmProgressMonitoringProfile,
@@ -50,6 +52,7 @@ def detect_dataset_profile(
 def legacy_family_name(profile: DatasetProfileResult) -> str:
     """Map new profiles to names expected by the current app and health checks."""
     mapping = {
+        "act_longitudinal": "ACT longitudinal summary",
         "wytopp_longitudinal": "WYTOPP longitudinal proficiency summary",
         "wytopp_current_year": "WYTOPP current-year proficiency summary",
         "cbm_progress_monitoring": "CBM / progress-monitoring data",

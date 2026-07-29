@@ -7,6 +7,8 @@ from typing import BinaryIO, Protocol
 
 import pandas as pd
 
+from core.schema_normalizer import normalize_dataframe_schema
+
 
 class UploadedFileLike(Protocol):
     """Minimal interface used by Streamlit uploaded files."""
@@ -62,4 +64,6 @@ def load_dataframe(uploaded_file: UploadedFileLike | BinaryIO) -> pd.DataFrame:
     if df.empty and len(df.columns) == 0:
         raise ValueError("The uploaded file does not contain a readable table.")
 
-    return clean_column_names(df)
+    cleaned = clean_column_names(df)
+    normalized, _ = normalize_dataframe_schema(cleaned)
+    return normalized
